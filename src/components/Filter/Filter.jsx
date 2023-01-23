@@ -2,7 +2,11 @@ import { setByNameFilter } from 'redux/contacts/filtersSlice';
 import { selectFilterByName } from 'redux/contacts/selectors';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { Input, Label } from './Filter.styled';
+
+
+import { FormStyled, Input, Label } from 'components/Form/Form.styled';
+
+
 
 const Filter = () => {
   const filter = useSelector(selectFilterByName);
@@ -13,14 +17,16 @@ const Filter = () => {
     dispatch(setByNameFilter(e.target.value));
   };
   return (
-    <Label>
-      <Input
-        placeholder=" Contact Filter"
-        type="text"
-        value={filter}
-        onChange={filterByName}
-      ></Input>
-    </Label>
+    <FormStyled>
+      <Label>
+        <Input
+          placeholder=" Contact Filter"
+          type="text"
+          value={filter}
+          onChange={filterByName}
+        ></Input>
+      </Label>
+    </FormStyled>
   );
 };
 

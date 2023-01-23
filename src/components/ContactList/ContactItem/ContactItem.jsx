@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { Button, TextStyled } from './ContactItem.styled';
+import {  TextStyled } from './ContactItem.styled';
 import { ContactDeleteApi } from 'redux/contacts/operations';
+import { Button, } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const ContactItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
@@ -11,7 +13,12 @@ const ContactItem = ({ name, number, id }) => {
     <>
       <p>{name}</p>
       <TextStyled>{number}</TextStyled>
-      <Button type="button" onClick={handleDelete}>
+      <Button
+        variant="outlined"
+        startIcon={<DeleteIcon />}
+        type="button"
+        onClick={handleDelete}
+      >
         Delete
       </Button>
     </>

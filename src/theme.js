@@ -1,3 +1,6 @@
+import { createTheme, useMediaQuery } from "@mui/material";
+import React from "react";
+
 export const theme = Object.freeze({
   colors: {
     grey: 'lightgrey',
@@ -10,6 +13,23 @@ export const theme = Object.freeze({
     background: '#8678979f',
   },
   spacing: value => `${4 * value}px`,
+  Themes
 });
 
 
+
+
+function Themes() {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: prefersDarkMode ? 'dark' : 'light',
+        },
+      }),
+    [prefersDarkMode],
+  )
+  theme()
+}

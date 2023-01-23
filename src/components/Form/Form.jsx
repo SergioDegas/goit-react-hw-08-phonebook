@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { Button, FormStyled, Input, Label } from './Form.styled';
+import {  FormStyled, Input, Label } from './Form.styled';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectContact } from 'redux/contacts/selectors';
 import { ContactAddApi } from 'redux/contacts/operations';
+import { Button } from '@mui/material';
+import { AddIcCallOutlined } from '@mui/icons-material';
 
 const Form = () => {
   const [name, setName] = useState('');
@@ -56,7 +58,7 @@ const Form = () => {
             required
           />
         </Label>
-        <br></br>
+    
         <Label>
           <Input
             value={number}
@@ -70,7 +72,14 @@ const Form = () => {
           />
         </Label>
 
-        <Button type="submit">Add contacts</Button>
+        <Button
+          variant="contained"
+          startIcon={<AddIcCallOutlined />}
+          type="submit"
+        >
+          Add contacts
+      
+        </Button>
       </FormStyled>
       <Toaster />
     </>

@@ -1,5 +1,9 @@
+
+import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
+import { FormStyled, Input, Label } from './Register.styled';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 
 const Register = () => {
@@ -19,22 +23,24 @@ const Register = () => {
     form.reset();
   };
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
-        <input type="text" name="name" placeholder=" Enter your Name" />
-      </label>
-      <label>
-        <input type="email" name="email" placeholder=" Enter your email" />
-      </label>
-      <label>
-        <input
+    <FormStyled onSubmit={handleSubmit} autoComplete="off">
+      <Label>
+        <Input type="text" name="name" placeholder=" Enter your Name" />
+      </Label>
+      <Label>
+        <Input type="email" name="email" placeholder=" Enter your email" />
+      </Label>
+      <Label>
+        <Input
           type="password"
           name="password"
           placeholder=" Enter your password"
         />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+      </Label>
+      <Button variant="contained" endIcon={<HowToRegIcon />} type="submit">
+        Register
+      </Button>
+    </FormStyled>
   );
 };
 export default Register;

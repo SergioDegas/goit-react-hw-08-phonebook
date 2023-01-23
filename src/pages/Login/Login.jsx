@@ -1,6 +1,8 @@
+import { Button } from '@mui/material';
+import { FormStyled, Input, Label } from 'pages/Register/Register.styled';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-
+import LoginIcon from '@mui/icons-material/Login';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -17,19 +19,21 @@ const Login = () => {
     form.reset();
   };
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
-        <input type="email" name="email" placeholder=" Enter your email" />
-      </label>
-      <label>
-        <input
+    <FormStyled onSubmit={handleSubmit} autoComplete="off">
+      <Label>
+        <Input type="email" name="email" placeholder=" Enter your email" />
+      </Label>
+      <Label>
+        <Input
           type="password"
           name="password"
           placeholder=" Enter your password"
         />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+      </Label>
+      <Button variant="contained" endIcon={<LoginIcon />} type="submit">
+        LogIn
+      </Button>
+    </FormStyled>
   );
 };
 export default Login;

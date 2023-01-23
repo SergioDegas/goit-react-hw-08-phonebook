@@ -17,11 +17,13 @@ const Contacts = () => {
   }, [dispatch]);
   return (
     <>
-      <Form />
-      <Filter />
-      {isLoading && !error && <Loader />}
-      {error && <p>{error}</p>}
-      {!isLoading && <ContactList />}
+      <main>
+        <Form />
+        <Filter />
+        {isLoading && !error && <Loader />}
+        {error && <p>{error}</p>}
+        {!isLoading && <ContactList />}
+      </main>
     </>
   );
 };

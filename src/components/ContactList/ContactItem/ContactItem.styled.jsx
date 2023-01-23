@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 export const TextStyled = styled.p`
-  margin-right: ${({ theme }) => `${theme.spacing(15)}`};
+  margin-right: ${({ theme }) => `${theme.spacing(5)}`};
   margin-left: auto;
 `;
 export const Button = styled.button`
